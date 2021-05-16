@@ -19,6 +19,7 @@
     },
     "homepage": "https://github.com/ObadaAlkhalaileh/W08D01_MongoDB-Mongoose#readme",
     "dependencies": {
-        "express": "^4.17.1"
+        "express": "^4.17.1",
+        "mongoose": "^5.12.9"
     }
 }
