@@ -1,8 +1,11 @@
 const express = require("express");
+//todo model use(connected to todo schema in schema.js)
 const todoModel = require("./schema");
+
 const db = require("./db");
 
 const app = express();
+
 app.use(express.json());
 
 app.get("/todos", (req, res) => {});
