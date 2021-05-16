@@ -2,7 +2,7 @@
     "name": "w08d01_mongodb-mongoose",
     "version": "1.0.0",
     "description": "",
-    "main": "main.js",
+    "main": "app.js",
     "scripts": {
         "start": "node main.js",
         "dev": "nodemon main.js",
