@@ -8,7 +8,16 @@ const app = express();
 
 app.use(express.json());
 
-app.get("/todos", (req, res) => {});
+//PRACTICE 2
+app.get("/todos", (req, res) => {
+    todoModel.find({})
+        .then((result) => {
+            res.send(result);
+        })
+        .catch((err) => {
+            res.send(err);
+        });
+});
 
 //PRACTICE 1
 app.post("/create/todo", (req, res) => {
