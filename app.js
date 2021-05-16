@@ -8,6 +8,18 @@ const app = express();
 
 app.use(express.json());
 
+//PRACTICE 3
+app.get("/todos/completed", (req, res) => {
+    // const searchCondition = req.params.completed (no need)
+    todoModel.find({ isCompleted: true })
+        .then((result) => {
+            res.send(result);
+        })
+        .catch((err) => {
+            res.send(err);
+        });
+});
+
 //PRACTICE 2
 app.get("/todos", (req, res) => {
     todoModel.find({})
