@@ -8,7 +8,19 @@ const app = express();
 
 app.use(express.json());
 
-//PRACTICE 3
+// practice 6
+app.delete("/delete/todo", (req, res) => {
+    todoModel.deleteOne({ isCompleted: true }, (err) => {
+        if (err) { res.send(err) } else { //kept waiting in postman without (else)
+            res.status(200)
+            res.send("completed tasks deleted")
+        };
+    });
+});
+
+//PRACTICE 5
+
+//PRACTICE 4
 app.get("/todos/completed", (req, res) => {
     // const searchCondition = req.params.completed (no need)
     todoModel.find({ isCompleted: true })
@@ -20,7 +32,7 @@ app.get("/todos/completed", (req, res) => {
         });
 });
 
-//PRACTICE 2
+//PRACTICE 3
 app.get("/todos", (req, res) => {
     todoModel.find({})
         .then((result) => {
@@ -63,7 +75,7 @@ app.post("/create/todo", (req, res) => {
 });
 
 app.put("/update/todo", (req, res) => {});
-app.delete("/delete/todo", (req, res) => {});
+
 
 const port = 3000;
 app.listen(port, () => {
