@@ -10,15 +10,17 @@ app.use(express.json());
 
 // practice 6
 app.delete("/delete/todo", (req, res) => {
-    todoModel.deleteOne({ isCompleted: true }, (err) => {
-        if (err) { res.send(err) } else { //kept waiting in postman without (else)
-            res.status(200)
-            res.send("completed tasks deleted")
+    todoModel.deleteMany({ isCompleted: true }, (err, resp) => {
+        if (err) { res.send(err) };
+        if (resp) { //kept waiting in postman without this condition
+            res.status(200);
+            res.send("completed tasks deleted");
         };
     });
 });
 
 //PRACTICE 5
+app.put("/update/todo", (req, res) => {});
 
 //PRACTICE 4
 app.get("/todos/completed", (req, res) => {
@@ -73,8 +75,6 @@ app.post("/create/todo", (req, res) => {
             res.send(err);
         });
 });
-
-app.put("/update/todo", (req, res) => {});
 
 
 const port = 3000;
